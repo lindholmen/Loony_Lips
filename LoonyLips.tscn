@@ -50,9 +50,9 @@ __meta__ = {
 }
 
 [node name="DisplayText" type="Label" parent="VBoxContainer"]
-margin_top = 74.0
+margin_top = 75.0
 margin_right = 976.0
-margin_bottom = 474.0
+margin_bottom = 475.0
 rect_min_size = Vector2( 0, 400 )
 custom_fonts/font = SubResource( 1 )
 text = "placeholder"
@@ -67,6 +67,7 @@ margin_top = 479.0
 margin_right = 976.0
 margin_bottom = 552.0
 custom_constants/separation = 24
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -74,6 +75,7 @@ __meta__ = {
 [node name="PlayerText" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 margin_right = 879.0
 margin_bottom = 73.0
+rect_min_size = Vector2( 70, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 
@@ -91,12 +93,15 @@ __meta__ = {
 }
 
 [node name="ButtonLabel" type="Label" parent="VBoxContainer/HBoxContainer/TextureButton"]
-margin_left = 2.38641
-margin_top = 5.0
-margin_right = 71.3864
-margin_bottom = 68.0
+anchor_left = -0.0113559
+anchor_right = 0.988644
+anchor_bottom = 1.0
+margin_left = 0.828979
+margin_right = 0.828979
 custom_fonts/font = SubResource( 3 )
 text = "OK"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
