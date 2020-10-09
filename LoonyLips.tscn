@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://LoonyLips.gd" type="Script" id=1]
 [ext_resource path="res://gfx/blackboard.jpg" type="Texture" id=2]
 [ext_resource path="res://gfx/Feltpen.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://gfx/blue_button11.png" type="Texture" id=4]
 [ext_resource path="res://gfx/blue_button12.png" type="Texture" id=5]
+[ext_resource path="res://Story.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -105,5 +106,17 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="StoryNode" type="Node" parent="."]
+
+[node name="Story0" type="Node" parent="StoryNode"]
+script = ExtResource( 6 )
+prompts = PoolStringArray( "a name", "a noun", "an adjective" )
+story = "Once upon a time %s watched a movie called %s and thought it was %s"
+
+[node name="Story1" type="Node" parent="StoryNode"]
+script = ExtResource( 6 )
+prompts = PoolStringArray( "a hobby", "an adverb", "a verb" )
+story = "I know you like %s, which is like a dog eating its food %s because the dog wants to %s"
 [connection signal="text_entered" from="VBoxContainer/HBoxContainer/PlayerText" to="." method="_on_PlayerText_text_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]

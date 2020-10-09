@@ -1,0 +1,43 @@
+[
+    {
+        "prompts": [
+            "a name",
+            "a noun",
+            "adjective"
+        ],
+        "story": "Once upon a time %s watched a movie called %s and thought it was %s"
+    },
+    {
+        "prompts": [
+            "a hobby",
+            "adverb",
+            "verb"
+        ],
+        "story": "I know you like %s, which is like a dog eating its food %s because the dog wants to %s"
+    },
+    {
+        "prompts": [
+            "a thing",
+            "verb",
+            "feeling"
+        ],
+        "story": "Things like %s usuaaly are hard to %s, this will make us %s"
+    },
+    {
+        "prompts": [
+            "a noun",
+            "adjective",
+            "adverb"
+        ],
+        "story": "You have no idea of %s because it is so %s that we may have to think abou it %s"
+    },
+    {
+        "prompts": [
+            "a thing",
+            "a name",
+            "a description word(an adjective)",
+            "a thing"
+        ],
+        "story": "There once was %s called %s that lived as %s as a %s"
+    }
+]

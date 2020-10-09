@@ -3,19 +3,8 @@ extends Control
 var player_words = []
 
 var first_time_flag = true
-var template = [
-		{"prompts": ["a name", "a noun", "adjective"],
-		"story":"Once upon a time %s watched a movie called %s and thought it was %s"},
-		{"prompts": ["a hobby", "adverb", "verb"],
-		"story":"I know you like %s, which is like a dog eating its food %s because the dog wants to %s"},
-		{"prompts": ["a thing", "verb", "feeling"],
-		"story":"Things like %s usuaaly are hard to %s, this will make us %s"},
-		{"prompts": ["a noun", "adjective", "adverb"],
-		"story":"You have no idea of %s because it is so %s that we may have to think abou it %s"},
-		{"prompts": ["a thing", "a name", "a description word(an adjective)", "a thing"],
-		"story":"There once was %s called %s that lived as %s as a %s"}
-]
-var current_story 
+
+var current_story = {}
 onready var player_text = $VBoxContainer/HBoxContainer/PlayerText
 onready var display_text = $VBoxContainer/DisplayText
 onready var button_label_text = $VBoxContainer/HBoxContainer/TextureButton/ButtonLabel 
@@ -26,11 +15,29 @@ func _ready():
 	display_text.text = "Welcome to the LoonyLips! You will give input to make a full story. Prese ok when you are ready!"
 	player_text.visible = false
 	
-	
+
 func select_story():
 	randomize()
-	current_story = template[randi() % template.size()]
+#	current_story = template[randi() % template.size()]
 	
+	#Method1(keep in the engine):
+#	var stories = $StoryNode.get_child_count()
+#	var selected_story = randi() % stories
+#	current_story.prompts = $StoryNode.get_child(selected_story).prompts
+#	current_story.story = $StoryNode.get_child(selected_story).story
+	
+	#Method2 (using json):
+	var stories = get_from_json("StoryBook.json")
+	current_story = stories[randi() % stories.size()]
+
+func get_from_json(file_name):
+	var json_file = File.new()
+	json_file.open(file_name, File.READ)
+	var content = json_file.get_as_text()
+	var data = parse_json(content)
+	json_file.close()
+	return data
+
 func start_game():
 	check_player_words_length()
 
@@ -54,10 +61,7 @@ func handle_player_input():
 	else:
 		add_to_player_words() 
 
-func update_DisplayText(words):
-	pass
-#	display_text.text = words
-#	player_text.clear()
+
 	
 func add_to_player_words():
 	player_words.append(player_text.text)
