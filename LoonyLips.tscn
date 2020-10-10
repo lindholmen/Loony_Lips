@@ -118,5 +118,10 @@ story = "Once upon a time %s watched a movie called %s and thought it was %s"
 script = ExtResource( 6 )
 prompts = PoolStringArray( "a hobby", "an adverb", "a verb" )
 story = "I know you like %s, which is like a dog eating its food %s because the dog wants to %s"
+
+[node name="Story2" type="Node" parent="StoryNode"]
+script = ExtResource( 6 )
+prompts = PoolStringArray( "a thing", "a name", "a description word(an adjective)", "a thing" )
+story = "There once was %s called %s that lived as %s as a %s"
 [connection signal="text_entered" from="VBoxContainer/HBoxContainer/PlayerText" to="." method="_on_PlayerText_text_entered"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]

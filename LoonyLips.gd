@@ -21,14 +21,14 @@ func select_story():
 #	current_story = template[randi() % template.size()]
 	
 	#Method1(keep in the engine):
-#	var stories = $StoryNode.get_child_count()
-#	var selected_story = randi() % stories
-#	current_story.prompts = $StoryNode.get_child(selected_story).prompts
-#	current_story.story = $StoryNode.get_child(selected_story).story
+	var stories = $StoryNode.get_child_count()
+	var selected_story = randi() % stories
+	current_story.prompts = $StoryNode.get_child(selected_story).prompts
+	current_story.story = $StoryNode.get_child(selected_story).story
 	
 	#Method2 (using json):
-	var stories = get_from_json("StoryBook.json")
-	current_story = stories[randi() % stories.size()]
+	#var stories = get_from_json("StoryBook.json")
+	#current_story = stories[randi() % stories.size()]
 
 func get_from_json(file_name):
 	var json_file = File.new()
